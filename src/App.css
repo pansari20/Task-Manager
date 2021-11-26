@@ -5,15 +5,13 @@
   display: block;
   padding: 2rem 1rem;
   margin: 2rem auto;
+  max-width: 500px;
 }
 
 .add-task{
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
-}
-
-#display-task p{
+  margin-bottom: 1.6rem;
 }
 
 #display-task p button {
@@ -21,6 +19,8 @@
 }
 
 input{
+  width: 80%;
+  max-width: 400px;
   padding: 5px;
   text-align: center;
   margin: 1px;
@@ -38,4 +38,27 @@ input{
   margin: 0;
   margin-bottom: 1.4rem;
   text-align: center;
+  font-weight: 500;
+}
+
+.calculator{
+  width: 48%;
+}
+
+.btn-calci{
+  padding: 10px 15px;
+  margin: 2px;
+  width: 31%;
+}
+
+.btn-calci-zero{
+  width: 100%;
+  padding: 10px 15px;
+  margin: 2px 0 ;
+}
+
+#calci-input{
+  width: 90%;
+  display: block;
+  margin: auto;
 }
