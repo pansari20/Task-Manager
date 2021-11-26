@@ -1,23 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import Task from './components/Task'
+import { useState } from 'react';
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+  const [text, setText] = useState('');
+
+  const onChangeTask = (e) =>{
+    setText(e.target.value);
+  }
+
+  const submitTask = () =>{
+    setTasks([...tasks, text]);
+    setText('')
+  }
+
+  const isDisabled = (text) =>{
+    if(text==='') return true;
+    return false;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1 id="main-heading">Task Manager</h1>
+      <form>
+      <div className="add-task">
+        <input type="text" placeholder="Task to add" value={text} onChange={onChangeTask} />
+        <button className="btn" onClick={submitTask} disabled={isDisabled(text)} >Add</button>
+      </div>
+      </form>
+      <div id="display-task">
+        {tasks.map((task, index)=>{
+          return <Task num={index+1} text={task} tasks={tasks} setTasks={setTasks}/>
+        })}
+      </div>
     </div>
   );
 }
