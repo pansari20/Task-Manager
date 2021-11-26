@@ -5,14 +5,14 @@ import { useState, useEffect } from 'react';
 function App() {
 
   const getLocalStorage = ()=>{
-    return JSON.parse(localStorage.getItem('textt'));
+    return JSON.parse(localStorage.getItem('text'));
   }
   
   const [tasks, setTasks] = useState(getLocalStorage());
   const [text, setText] = useState('');
 
   useEffect( () => {
-    localStorage.setItem('textt', JSON.stringify(tasks))
+    localStorage.setItem('text', JSON.stringify(tasks))
   }, [tasks])
 
   const onChangeTask = (e) => {
